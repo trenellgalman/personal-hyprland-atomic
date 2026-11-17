@@ -9,6 +9,11 @@ base-image: ghcr.io/blue-build/base-images/fedora-base-nvidia-open
 image-version: latest
 
 modules:
+  - type: files
+    files:
+      - source: system
+        destination: /
+
   # Install Hyprland and essential Wayland components
   - type: dnf
     repos:
