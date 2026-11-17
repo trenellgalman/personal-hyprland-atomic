@@ -23,6 +23,7 @@ modules:
         - xdg-desktop-portal-hyprland
         - ghostty
         - polkit
+        - noctalia
 
   # Configure image signing
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
