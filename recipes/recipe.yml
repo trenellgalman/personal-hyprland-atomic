@@ -1,11 +1,27 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+
 name: personal-hyprland-atomic
+
 description: Fedora Atomic desktop with Hyprland and Noctalia.
 
 base-image: ghcr.io/blue-build/base-images/fedora-base-nvidia-open
 image-version: latest
 
 modules:
+  # Install Hyprland and essential Wayland components
+  - type: dnf
+    repos:
+      copr:
+        - lionheartp/Hyprland
+
+    install:
+      packages:
+        - hyprland
+        - xdg-desktop-portal
+        - xdg-desktop-portal-hyprland
+        - ghostty
+        - polkit
+
   # Configure image signing
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
